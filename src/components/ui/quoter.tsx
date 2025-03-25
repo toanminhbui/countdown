@@ -1,46 +1,92 @@
 import React, { useMemo } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Playfair_Display } from 'next/font/google';
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 const STARTUP_QUOTES = [
   {
-    text: "It's hard to beat a person who never gives up",
-    author: "Babe Ruth"
+    text: 'The best startup ideas seem at first like bad ideas. If they were obviously good ideas, someone would have done them already.',
+    author: 'Paul Graham'
   },
   {
-    text: "Success is not final, failure is not fatal: it is the courage to continue that counts",
-    author: "Winston Churchill"
+    text: 'Make something people want.',
+    author: 'Paul Graham'
   },
   {
-    text: "The only way to do great work is to love what you do",
-    author: "Steve Jobs"
+    text: 'The way to get startup ideas is not to try to think of startup ideas. It\'s to look for problems, preferably problems you have yourself.',
+    author: 'Paul Graham'
   },
   {
-    text: "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work",
-    author: "Steve Jobs"
+    text: 'Launch fast and iterate. The initial version of your product should be embarrassingly simple.',
+    author: 'Paul Graham'
   },
   {
-    text: "Don't watch the clock; do what it does. Keep going",
-    author: "Sam Levenson"
+    text: 'It\'s better to have 100 people who love you than a million who sort of like you.',
+    author: 'Paul Graham'
   },
   {
-    text: "The biggest adventure you can ever take is to live the life of your dreams",
-    author: "Oprah Winfrey"
+    text: 'The best ideas come from direct experience, especially direct experience of needs.',
+    author: 'Paul Graham'
   },
   {
-    text: "Every great dream begins with a dreamer. Always remember, you have within you the strength, the patience, and the passion to reach for the stars to change the world",
-    author: "Harriet Tubman"
+    text: 'If you can\'t yet do what you want, you should either learn how or work with someone who can.',
+    author: 'Paul Graham'
   },
   {
-    text: "The future belongs to those who believe in the beauty of their dreams",
-    author: "Eleanor Roosevelt"
+    text: 'It\'s hard to beat a person who never gives up',
+    author: 'Babe Ruth'
   },
   {
-    text: "Success usually comes to those who are too busy to be looking for it",
-    author: "Henry David Thoreau"
+    text: 'Success is not final, failure is not fatal: it is the courage to continue that counts',
+    author: 'Winston Churchill'
   },
   {
-    text: "Entrepreneurship is living a few years of your life like most people won't, so that you can spend the rest of your life like most people can't",
-    author: "Unknown"
+    text: 'The only way to do great work is to love what you do',
+    author: 'Steve Jobs'
+  },
+  {
+    text: 'Don\'t watch the clock; do what it does. Keep going',
+    author: 'Sam Levenson'
+  },
+  {
+    text: 'Ideas are the beginning points of all fortunes',
+    author: 'Napoleon Hill'
+  },
+  {
+    text: 'The biggest risk is not taking any risk',
+    author: 'Mark Zuckerberg'
+  },
+  {
+    text: 'Move fast and break things. Unless you are breaking stuff, you are not moving fast enough',
+    author: 'Mark Zuckerberg'
+  },
+  {
+    text: 'The question I ask myself almost every day is, \'Am I doing the most important thing I could be doing?\'',
+    author: 'Mark Zuckerberg'
+  },
+  {
+    text: 'If you\'re not embarrassed by the first version of your product, you\'ve launched too late',
+    author: 'Reid Hoffman'
+  },
+  {
+    text: 'The fastest way to change yourself is to hang out with people who are already the way you want to be',
+    author: 'Reid Hoffman'
+  },
+  {
+    text: 'All humans are entrepreneurs not because they should start companies but because the will to create is encoded in human DNA',
+    author: 'Reid Hoffman'
+  },
+  {
+    text: 'Entrepreneurship is jumping off a cliff and assembling an airplane on the way down',
+    author: 'Reid Hoffman'
+  },
+  {
+    text: 'The only way to do something great is to love what you do',
+    author: 'Steve Jobs'
   }
 ];
 
@@ -53,10 +99,10 @@ const StartupQuote: React.FC = () => {
   return (
     <Card className="w-full max-w-2xl mx-auto bg-background border-border">
       <CardContent className="p-6">
-        <blockquote className="text-xl italic text-center text-foreground mb-4">
+        <blockquote className={`${playfair.className} text-xl italic text-center text-foreground mb-4 leading-relaxed`}>
           "{randomQuote.text}"
         </blockquote>
-        <p className="text-md font-semibold text-center text-muted-foreground">
+        <p className={`${playfair.className} text-md font-medium text-center text-muted-foreground`}>
           - {randomQuote.author}
         </p>
       </CardContent>

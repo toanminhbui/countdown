@@ -94,7 +94,7 @@ const CountdownTimer: React.FC = () => {
       <Card className="w-full max-w-4xl mx-auto bg-background border-border shadow-2xl">
         <CardContent className="pt-4 px-8 pb-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold text-foreground">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">
               Countdown til Demo Day
             </h2>
             {currentMilestone && (
