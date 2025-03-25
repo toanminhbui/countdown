@@ -10,10 +10,10 @@ interface Task {
 }
 
 const initialTasks = [
-  { day: 7, text: 'Barebone MVP', completed: false },
+  { day: 7, text: 'Barebone MVP, focus on one main feature', completed: false },
   { day: 10, text: '10 People to Try MVP', completed: false },
   { day: 14, text: 'Modify MVP + 10 More Users', completed: false },
-  { day: 17, text: 'Iteration Phase + Build Story/Presentation', completed: false },
+  { day: 17, text: 'Iteration Phase + Build Story for Presentation', completed: false },
   { day: 21, text: 'Pre-demo Day - Test Run with V1 Community', completed: false },
   { day: 23, text: 'Demo Day', completed: false },
 ];
