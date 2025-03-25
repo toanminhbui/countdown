@@ -9,6 +9,7 @@ interface Task {
   completed: boolean;
 }
 
+const STORAGE_VERSION = '1.0'; // Increment this when tasks change
 const initialTasks = [
   { day: 7, text: 'Barebone MVP, focus on one main feature', completed: false },
   { day: 10, text: '10 People to Try MVP', completed: false },
@@ -24,9 +25,17 @@ const TaskChecklist: React.FC = () => {
 
   useEffect(() => {
     setMounted(true);
-    const saved = localStorage.getItem('demoTasks');
-    if (saved) {
-      setTasks(JSON.parse(saved));
+    const version = localStorage.getItem('demoTasksVersion');
+    if (version !== STORAGE_VERSION) {
+      // Clear old data and set new version
+      localStorage.setItem('demoTasks', JSON.stringify(initialTasks));
+      localStorage.setItem('demoTasksVersion', STORAGE_VERSION);
+      setTasks(initialTasks);
+    } else {
+      const saved = localStorage.getItem('demoTasks');
+      if (saved) {
+        setTasks(JSON.parse(saved));
+      }
     }
   }, []);
 

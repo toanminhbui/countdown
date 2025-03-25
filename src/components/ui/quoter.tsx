@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+'use client'
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Playfair_Display } from 'next/font/google';
 
@@ -91,19 +92,21 @@ const STARTUP_QUOTES = [
 ];
 
 const StartupQuote: React.FC = () => {
-  // Use useMemo to persist the random quote across re-renders
-  const randomQuote = useMemo(() => {
-    return STARTUP_QUOTES[Math.floor(Math.random() * STARTUP_QUOTES.length)];
-  }, []); // Empty dependency array means this will only run once when component mounts
+  const [quote, setQuote] = useState(STARTUP_QUOTES[0]);
+  
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * STARTUP_QUOTES.length);
+    setQuote(STARTUP_QUOTES[randomIndex]);
+  }, []);
 
   return (
     <Card className="w-full max-w-2xl mx-auto bg-background border-border">
       <CardContent className="p-6">
         <blockquote className={`${playfair.className} text-xl italic text-center text-foreground mb-4 leading-relaxed`}>
-          &ldquo;{randomQuote.text}&rdquo;
+          &ldquo;{quote.text}&rdquo;
         </blockquote>
         <p className={`${playfair.className} text-md font-medium text-center text-muted-foreground`}>
-          - {randomQuote.author}
+          - {quote.author}
         </p>
       </CardContent>
     </Card>
