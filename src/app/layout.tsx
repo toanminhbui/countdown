@@ -22,6 +22,27 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Demo Day Countdown",
   description: "Countdown for V1 Demo Day",
+  openGraph: {
+    title: 'Demo Day Countdown',
+    description: 'Countdown to V1 Demo Day - Track progress and stay motivated with startup quotes',
+    url: 'https://v1michigan.com/w25-countdown',
+    siteName: 'Demo Day Countdown',
+    images: [
+      {
+        url: 'https://www.entrepreneur.com/growing-a-business/7-tips-for-crushing-it-on-demo-day/246598', // Add your own image URL here
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Demo Day Countdown',
+    description: 'Countdown to V1 Demo Day - Track progress and stay motivated with startup quotes',
+    images: ['https://www.entrepreneur.com/growing-a-business/7-tips-for-crushing-it-on-demo-day/246598'], // Add your own image URL here
+  },
 };
 
 export default function RootLayout({
