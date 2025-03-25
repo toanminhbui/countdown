@@ -100,7 +100,7 @@ const StartupQuote: React.FC = () => {
     <Card className="w-full max-w-2xl mx-auto bg-background border-border">
       <CardContent className="p-6">
         <blockquote className={`${playfair.className} text-xl italic text-center text-foreground mb-4 leading-relaxed`}>
-          "{randomQuote.text}"
+          &ldquo;{randomQuote.text}&rdquo;
         </blockquote>
         <p className={`${playfair.className} text-md font-medium text-center text-muted-foreground`}>
           - {randomQuote.author}
