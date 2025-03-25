@@ -15,7 +15,7 @@ const initialTasks = [
   { day: 14, text: 'Modify MVP + 10 More Users', completed: false },
   { day: 17, text: 'Iteration Phase + Build Story/Presentation', completed: false },
   { day: 21, text: 'Pre-demo Day - Test Run with V1 Community', completed: false },
-  { day: 22, text: 'Demo Day', completed: false },
+  { day: 23, text: 'Demo Day', completed: false },
 ];
 
 const TaskChecklist: React.FC = () => {

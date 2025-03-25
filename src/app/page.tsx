@@ -100,7 +100,7 @@ const CountdownTimer: React.FC = () => {
             {currentMilestone && (
               <div className="mt-2">
                 <p className="text-muted-foreground">
-                  Current Goal (Day {currentMilestone.day}):
+                  Current Goal (Day {23 - Math.floor(Number(timeLeft.days)) + 1}):
                 </p>
                 <p className="text-lg text-foreground font-medium">
                   {currentMilestone.text}
