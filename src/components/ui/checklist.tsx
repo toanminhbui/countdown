@@ -9,29 +9,32 @@ interface Task {
   completed: boolean;
 }
 
+const initialTasks = [
+  { day: 7, text: 'Barebone MVP', completed: false },
+  { day: 10, text: '10 People to Try MVP', completed: false },
+  { day: 14, text: 'Modify MVP + 10 More Users', completed: false },
+  { day: 17, text: 'Iteration Phase + Build Story/Presentation', completed: false },
+  { day: 21, text: 'Pre-demo Day - Test Run with V1 Community', completed: false },
+  { day: 22, text: 'Demo Day', completed: false },
+];
+
 const TaskChecklist: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>(() => {
-    // Try to load saved state from localStorage
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
     const saved = localStorage.getItem('demoTasks');
     if (saved) {
-      return JSON.parse(saved);
+      setTasks(JSON.parse(saved));
     }
-    // Initial tasks if nothing is saved
-    return [
-      { day: 7, text: "Barebone MVP", completed: false },
-      { day: 10, text: "10 People to Try MVP", completed: false },
-      { day: 14, text: "Modify MVP + 10 More Users", completed: false },
-      { day: 17, text: "Iteration Phase + Build Story/Presentation", completed: false },
-      { day: 21, text: "Pre-demo Day - Test Run with V1 Community", completed: false },
-      { day: 22, text: "Almost there, day before demo!", completed: false },
-      { day: 23, text: "Demo Day", completed: false },
-    ];
-  });
+  }, []);
 
-  // Save to localStorage whenever tasks change
   useEffect(() => {
-    localStorage.setItem('demoTasks', JSON.stringify(tasks));
-  }, [tasks]);
+    if (mounted) {
+      localStorage.setItem('demoTasks', JSON.stringify(tasks));
+    }
+  }, [tasks, mounted]);
 
   const toggleTask = (index: number) => {
     setTasks(tasks.map((task, i) => 
